@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Mnunin plugin for monitoring time of returning a webpage.
+#
+
+URL=${url:-"google.com"}
+
+# some shells (e.g., bash(1)) have a built-in time commandthat provides less
+# functionality. You may need to specify command pathname.
+TIME="/usr/bin/time -f %e"
+WGET="/usr/bin/wget -q -O /dev/null -t 1 -T 10"
+
+function config {
+    cat << EOF
+graph_title Web response
+graph_vlabel seconds
+seconds.label Seconds
+EOF
+}
+
+if [ "$1" == "config" ] ; then
+    config
+    exit 0
+fi
+
+time=$(($TIME $WGET $URL) 2>&1 )
+echo "seconds.value $time"
