@@ -1,18 +1,20 @@
-munin plugin: webtime
+munin plugin: webresponse
 =====================
 
 USAGE
 -----
-`webtime [config] [autoconfig]`
+`webresponse [config] [autoconfig]`
 
 DESCRIPTION
 -----------
-A simple Munin plugin to graph a number of seconds of webpage response.
+A simple Munin plugin to graph a webpage response in seconds.
 
-You need to set url in plugin-conf.d. For `google.com` it can be:
+You need to set url in plugin-conf.d. For `yahoo.com` it can be:
 
-  [webtime]
-  env.url google.com
+  [webresponse]
+  env.url yahoo.com
+
+If there is not any variable, `google.com` is used.
 
 LICENSE
 -------
