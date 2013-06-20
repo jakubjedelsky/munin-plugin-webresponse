@@ -14,6 +14,7 @@ WGET="/usr/bin/wget -q -O /dev/null -t 1 -T 10"
 
 function config {
     cat << EOF
+graph_args -l 0
 graph_title Web response: $URL
 graph_vlabel seconds
 seconds.label Seconds
