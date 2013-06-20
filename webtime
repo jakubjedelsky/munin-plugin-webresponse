@@ -1,7 +1,9 @@
 #!/bin/bash
 #
-# Mnunin plugin for monitoring time of returning a webpage.
+# Munin plugin for monitoring time of returning a webpage.
 #
+#%# family=auto
+#%# capabilities=autoconf
 
 URL=${url:-"google.com"}
 
@@ -22,6 +24,11 @@ function check_dns {
     host "$1" > /dev/null 2>&1
     return $?
 }
+
+if [ "$1" == "autoconfig" ] ; then
+    echo "yes"
+    exit 0
+fi
 
 if [ "$1" == "config" ] ; then
     config
