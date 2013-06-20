@@ -14,9 +14,10 @@ WGET="/usr/bin/wget -q -O /dev/null -t 1 -T 10"
 
 function config {
     cat << EOF
-graph_title Web response
+graph_title Web response: $URL
 graph_vlabel seconds
 seconds.label Seconds
+graph_category network
 EOF
 }
 
