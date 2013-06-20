@@ -18,10 +18,17 @@ seconds.label Seconds
 EOF
 }
 
+function check_dns {
+    host "$1" > /dev/null 2>&1
+    return $?
+}
+
 if [ "$1" == "config" ] ; then
     config
     exit 0
 fi
 
+
+check_dns $URL || exit -1
 time=$(($TIME $WGET $URL) 2>&1 )
 echo "seconds.value $time"
