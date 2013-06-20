@@ -1,7 +1,19 @@
 munin plugin: webtime
-#####################
+=====================
 
-Returns a number of seconds of webpage response.
+USAGE
+-----
+`webtime [config] [autoconfig]`
 
-In config file you can use variable `env.url` for your webpage.
+DESCRIPTION
+-----------
+A simple Munin plugin to graph a number of seconds of webpage response.
 
+You need to set url in plugin-conf.d. For `google.com` it can be:
+
+  [webtime]
+  env.url google.com
+
+LICENSE
+-------
+This script is in the public domain, free from copyrights or restrictions.
